@@ -1,0 +1,46 @@
+public class StringReverseUsingTwoPointerTechnique {
+ 
+    public String reverse(String input){
+        if(input == null){
+            return null;
+        }
+        return reverse(input.toCharArray());
+    }
+ 
+    private String reverse(char[] input) {
+        
+        int i = 0;
+        int j = input.length-1;
+ 
+        // swap start index element with last index
+        // move start pointer i with one step ahead and j with one step behind
+        // continue same process until both i and j crosses with each other
+        while (i <j) {
+            swap(input, i, j);
+            i++;
+            j--;
+        }
+        return String.valueOf(input);
+    }
+ 
+    // method to swap elements using their index of the array
+    private void swap(char[] input, int i, int j){
+        char temp = input[i];
+        input[i] = input[j];
+        input[j] = temp;
+    }
+ 
+    // Driver Code
+    public static void main(String[] args){
+        StringReverseUsingTwoPointerTechnique obj = new StringReverseUsingTwoPointerTechnique();
+ 
+        // Example 1 :
+        String input1 = "Strive" ;
+        System.out.println(obj.reverse(input1));
+ 
+        // Example 2:
+        String input2 = "RENNIW" ;
+        System.out.println(obj.reverse(input2));
+ 
+    }
+}
